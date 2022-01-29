@@ -1,3 +1,26 @@
+# DFKI Course Search Bot testing
+
+## Setup
+
+### Training of the Model (de)
+
+Inside /rasa train the chatbot
+
+```sh
+    rasa train -c config_de.yml --out models/KI-Campus_de
+```
+### Usage
+
+Inside /rasa start the chatbot and run the action server
+
+```sh
+    rasa shell -m models/KI-Campus_de
+```
+```sh
+    rasa run actions
+```
+___________________
+
 # KI-Campus Chatbot
 
 ## Setup

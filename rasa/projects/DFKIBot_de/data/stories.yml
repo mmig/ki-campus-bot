@@ -1,6 +1,7 @@
 version: '2.0'
 
 stories:
+
 # course search
   - story: languages interjection
     steps:
@@ -34,8 +35,6 @@ stories:
 
   - story: stop course form
     steps:
-    - intent: greet
-    - action: utter_greet
     - intent: start_course_form 
     - action: utter_introduce_course_form
     - action: course_form    

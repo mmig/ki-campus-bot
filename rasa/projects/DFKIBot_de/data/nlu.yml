@@ -1,68 +1,7 @@
 version: '2.0'
 
 nlu:
-# Greetbot: hello, goodbye, thank
-# Course search
 
-# general
-  # - intent: affirm
-  #   examples: |
-  #     - yes
-  #     - yep
-  #     - ja
-  #     - jap
-  #     - okay
-  #     - gut
-  #     - passt
-  #     - jaha
-  #     - jo
-  #     - yeah
-  #     - ok
-  #     - korrekt
-  #     - genau
-  #     - jup
-  #     - auf jeden Fall
-  #     - ja, bitte
-  # - intent: deny
-  #   examples: |
-  #     - Nein danke
-  #     - Nein
-  #     - Ich möchte nicht
-  #     - Nah
-  #     - No
-  #     - Na
-  #     - Nee
-  #     - Ne
-  #     - Neeee
-  #     - Nein, nicht wirklich
-  #     - Absolut nicht
-  #     - ablehnen
-  #     - Ich lehne ab
-  #     - Ich denke nicht
-  #     - Nopes
-  #     - n
-  #     - na
-  #     - nah
-  #     - nehi
-  #     - nope
-  #     - nop
-  #     - vergiss es
-  #     - nein tu es nicht
-  #     - nicht jetzt
-  #     - das wollte ich nicht
-  #     - stop
-  #     - tu es nicht
-  #     - bitte nicht
-  #     - nein
-  #     - nö
-  # - intent: out_of_scope
-  #   examples: |
-  #     - Ich will Essen bestellen
-  #     - Ich will Pizza
-  #     - Was ist 2 + 2?
-  #     - Wer ist der Präsident von [US(country)]?
-  #     - Wie kann ich nach [US](country) ziehen?
-  #     - Was ist die Hauptstadt von [Germany](country)?
   - intent: undecided
     examples: |
       - egal
@@ -81,6 +20,7 @@ nlu:
       - Bitte die Konversation neu starten.
       - Noch mal von vorne anfangen.
       - Neustart.
+      
 # coursesearch
   - intent: start_course_form
     examples: |
@@ -110,8 +50,8 @@ nlu:
       - [zehn](max_duration) Stunden
       - [fünfzig](max_duration) Stunden
       - [über fünfzig](max_duration) Stunden
-# - [> 50](duration)
-# egal uttrance wie einfügen (für verschiedene Entities)
+      - [Leistungsnachweis](certificate)
+      - [Teilnahmebescheinigung](certificate)
   - intent: FAQ_time
     examples: |
       - Meinst du stündlich?
@@ -142,6 +82,16 @@ nlu:
       - suche abbrechen
 
 # synonyme course_form  
+  - synonym: Teilnahmeschein
+    examples: |
+      - Teilnahme
+      - Bescheinigung
+      - Anwesenheit
+  - synonym: Leistungsnachweis
+    examples: |
+      - Note
+      - benotete Teilnahme
+      - bewertete Teilnahme
   - synonym: englisch
     examples: |
       - EN
@@ -202,3 +152,4 @@ nlu:
       - über 50 
       - mehr als 50
       - über fünfzig
+
