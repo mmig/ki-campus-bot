@@ -1,9 +1,10 @@
 import re
+import random
 from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import EventType, Restarted, SlotSet
+from rasa_sdk.events import EventType, Restarted, SlotSet, AllSlotsReset
 from rasa_sdk.types import DomainDict
 
 # class ActionHelloWorld(Action):
@@ -28,8 +29,10 @@ class ActionFetchProfile(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # # missing api requests and slicing
-        user_id = "22218451-41f0-23dd-c50f-cdd8096610c1"
+        AllSlotsReset()
+            
+        if random.randint(0,9) > 4: user_id = "22218451-41f0-23dd-c50f-cdd8096610c1"
+        else: return [SlotSet("user_id", None), SlotSet("enrollments", []), SlotSet("course_visits", []), SlotSet("search_terms", []), dispatcher.utter_message(text="User ist nicht eingeloggt.")]
         # if re.search(".*", user_id): SlotSet("user_id", user_id) # create regex
         # else: return [SlotSet("user_id", None), dispatcher.utter_message("User ist nicht eingeloggt.")]
 

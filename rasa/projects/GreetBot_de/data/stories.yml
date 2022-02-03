@@ -6,8 +6,8 @@ stories:
   steps:
   - intent: greet
   - action: action_fetch_profile
-  # - slot_was_set:
-  #     - user_id: "22218451-41f0-23dd-c50f-cdd8096610c1"
+  - slot_was_set:
+    - user_id: "22218451-41f0-23dd-c50f-cdd8096610c1"
   - action: utter_greet
   - action: utter_profile_slots
 
@@ -23,10 +23,10 @@ stories:
    - action: utter_you_are_welcome
    - action: utter_anything_else
 
-# - story: User greets no login
-#   steps:
-#   - intent: greet
-#   - action: action_fetch_profile
-#   # - slot_was_set:
-#   #    - user_id: None
-#   - action: utter_greet
+- story: User greets no login
+  steps:
+  - intent: greet
+  - action: action_fetch_profile
+  - slot_was_set:
+    - user_id: None
+  - action: utter_greet
