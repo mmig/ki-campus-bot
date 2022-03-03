@@ -15,7 +15,7 @@ pipeline:
   - name: ResponseSelector
     epochs: 100
     constrain_similarities: True
-    #retrieval_intent: faq
+    retrieval_intent: faq
   - name: FallbackClassifier
     threshold: 0.7
 
@@ -32,3 +32,4 @@ importers:
 
 imports:
 - projects/KI-Campus_de
+- projects/DFKIBot_de

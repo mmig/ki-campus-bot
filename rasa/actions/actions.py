@@ -2,7 +2,7 @@ import re
 import random
 from typing import Any, Text, Dict, List
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker,  FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import EventType, Restarted, SlotSet, AllSlotsReset
 from rasa_sdk.types import DomainDict
@@ -19,6 +19,9 @@ from rasa_sdk.types import DomainDict
 #         dispatcher.utter_message(text="Hello World!")
 
 #         return []
+
+ALLOWED_LANGUAGES = ['deutsch', 'englisch']
+ALLOWED_TOPICS = ['ki-einführung', 'ki-vertiefung', 'ki-berufsfelder', 'ki-gesellschaft', 'data science', 'maschinelles lernen', 'egal']
 
 class ActionFetchProfile(Action):
     
@@ -84,3 +87,37 @@ class ActionGetLearningRecommendation(Action):
         search_terms = tracker.get_slot("search_terms")
         
         return []
+
+class ValidateCourseForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_course_form"
+
+    # def validate_language(
+    #     self,
+    #     slot_value: Any,
+    #     dispatcher: CollectingDispatcher,
+    #     tracker: Tracker,
+    #     domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `language` value."""
+
+    #     if slot_value.lower() not in ALLOWED_LANGUAGES:
+    #         dispatcher.utter_message(text=f"Momentan bieten wir nur Kurse in den Sprachen Deutsch und Englisch an!")
+    #         return {"language": None}
+    #     dispatcher.utter_message()
+    #     return {"language": slot_value.lower()}
+
+    # def validate_topic(
+    #     self,
+    #     slot_value: Any,
+    #     dispatcher: CollectingDispatcher,
+    #     tracker: Tracker,
+    #     domain: DomainDict,
+    # ) -> Dict[Text, Any]:
+    #     """Validate `topic` value."""
+
+    #     if slot_value not in ALLOWED_TOPICS:
+    #         dispatcher.utter_message(text=f"Wir bieten zu diesem Themenfeld keine Kurse an! Bitte wähle eins der aufgelisteten Themen.")
+    #         return {"topic": None}
+    #     dispatcher.utter_message()
+    #     return {"topic": slot_value.lower()}

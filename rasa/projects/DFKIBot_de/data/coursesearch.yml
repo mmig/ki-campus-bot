@@ -1,0 +1,413 @@
+version: '2.0'
+
+nlu:
+
+  - intent: undecided
+    examples: |
+      - Das kann ich nicht wissen
+      - Das kann ich nicht sagen 
+      - Ist mir egal
+      - Ist mir schnuppe
+      - Ist mir wurscht
+      - Ist mir gleichgültig
+      - Ist mir einerlei
+      - Wie du willst
+      - Wie du möchtest
+      - Wie du magst
+      - Ich weiß doch nicht
+      - Ich weiß noch nicht
+      - Ich weiß wirklich nicht
+      - Ich weiß gar nicht
+      - Ich weiß überhaupt nicht
+      - Das eine wie das andere.
+      - Darüber weiß ich nichts .
+      - Darüber weiß ich nicht Bescheid .
+      - Weiß ich noch nicht.
+      - Weiß ich wirklich nicht.
+      - Weiß ich echt nicht.
+      - Weiß ich nicht.
+      - Weiß nicht
+      - Egal
+      - Ist egal
+      - Wirklich egal
+      - keine Ahnung
+
+  - intent: restart
+    examples: |
+      - Neustart
+      - neustarten
+      - restart
+      - renew
+      - noch mal neu anfangen
+      - noch mal neu beginnen
+      - noch mal neu starten
+      - noch mal neu
+      - starte neu!
+      - beginne neu!
+      - Abbruch
+      - Stop
+      - stoppen
+      - abbrechen
+      - Bitte die Konversation neu beginnen .
+      - Bitte die Konversation neu anfangen .
+      - Bitte die Konversation neu starten .
+      - Bitte die Konversation neu machen .
+      - Konversation neu beginnen .
+      - Konversation neu anfangen .
+      - Konversation neu starten .
+      - Konversation neu machen .
+      - Bitte Noch mal von vorne beginnen .
+      - Bitte Noch mal von vorne anfangen .
+      - Bitte Noch mal von vorne starten .
+      - Bitte Noch mal von vorne machen .
+      - Noch mal von vorne beginnen .
+      - Noch mal von vorne anfangen .
+      - Noch mal von vorne starten .
+      - Noch mal von vorne machen .
+    
+# coursesearch
+  - intent: start_course_form
+    examples: |
+      - Ich will eine Kursempfehlung erhalten
+      - Ich will eine Kursempfehlung bekommen
+      - Ich will eine Kursempfehlung kriegen
+      - Ich möchte eine Kursempfehlung erhalten
+      - Ich möchte eine Kursempfehlung bekommen
+      - Ich möchte eine Kursempfehlung kriegen
+      - Kann ich eine Kursempfehlung erhalten
+      - Kann ich eine Kursempfehlung bekommen
+      - Kann ich eine Kursempfehlung kriegen
+      - Kannst du mir Kurse empfehlen ?
+      - Kannst du mir Kurse vorschlagen ?
+      - Kannst du mir Kurse suchen ?
+      - Kannst du mir einen Kurs empfehlen ?
+      - Kannst du mir einen Kurs vorschlagen ?
+      - Kannst du mir einen Kurs suchen ?
+      - Kannst du Kurse empfehlen ?
+      - Kannst du Kurse vorschlagen ?
+      - Kannst du Kurse suchen ?
+      - Kannst du einen Kurs empfehlen ?
+      - Kannst du einen Kurs vorschlagen ?
+      - Kannst du einen Kurs suchen ?
+      - Wechen Kurs kann ich wählen ?
+      - Wechen Kurs kann ich besuchen ?
+      - Wechen Kurs kann ich anschauen ?
+      - Wechen Kurs kann ich belegen ?
+      - Wechen Kurs soll ich wählen ?
+      - Wechen Kurs soll ich besuchen ?
+      - Wechen Kurs soll ich anschauen ?
+      - Wechen Kurs soll ich belegen ?
+      - Wechen Video kann ich wählen ?
+      - Wechen Video kann ich besuchen ?
+      - Wechen Video kann ich anschauen ?
+      - Wechen Video kann ich belegen ?
+      - Wechen Video soll ich wählen ?
+      - Wechen Video soll ich besuchen ?
+      - Wechen Video soll ich anschauen ?
+      - Wechen Video soll ich belegen ?
+      - Wechen Seminar kann ich wählen ?
+      - Wechen Seminar kann ich besuchen ?
+      - Wechen Seminar kann ich anschauen ?
+      - Wechen Seminar kann ich belegen ?
+      - Wechen Seminar soll ich wählen ?
+      - Wechen Seminar soll ich besuchen ?
+      - Wechen Seminar soll ich anschauen ?
+      - Wechen Seminar soll ich belegen ?
+      - Wechen Onlineseminar kann ich wählen ?
+      - Wechen Onlineseminar kann ich besuchen ?
+      - Wechen Onlineseminar kann ich anschauen ?
+      - Wechen Onlineseminar kann ich belegen ?
+      - Wechen Onlineseminar soll ich wählen ?
+      - Wechen Onlineseminar soll ich besuchen ?
+      - Wechen Onlineseminar soll ich anschauen ?
+      - Wechen Onlineseminar soll ich belegen ?
+      - Wechen Onlinekurs kann ich wählen ?
+      - Wechen Onlinekurs kann ich besuchen ?
+      - Wechen Onlinekurs kann ich anschauen ?
+      - Wechen Onlinekurs kann ich belegen ?
+      - Wechen Onlinekurs soll ich wählen ?
+      - Wechen Onlinekurs soll ich besuchen ?
+      - Wechen Onlinekurs soll ich anschauen ?
+      - Wechen Onlinekurs soll ich belegen ?
+      - Gibt es hier eine Empfehlung ?
+      - Gibt es hier eine  Beratung zu Kursen  ?
+      - Gibt es hier eine Kursberatung ?
+      - Such mir einen Kurs!
+      - Finde mir einen Kurs!
+      - Ich suche Kurse über [ML](topic)
+      - Ich suche Kurse über [Machine Learning](topic)
+      - Ich suche Kurse über [Data Science](topic)
+      - Ich suche Kurse über [Maschinelles Lernen](topic)
+      - Ich suche Kurse über [AI](topic)
+      - Ich suche Kurse über [KI](topic)
+      - Ich suche Kurse über [Artificial Intelligence](topic)
+      - Ich suche Kurse über [Künstliche Intelligenz](topic)
+      - Ich suche Kurse zu [ML](topic)
+      - Ich suche Kurse zu [Machine Learning](topic)
+      - Ich suche Kurse zu [Data Science](topic)
+      - Ich suche Kurse zu [Maschinelles Lernen](topic)
+      - Ich suche Kurse zu [AI](topic)
+      - Ich suche Kurse zu [KI](topic)
+      - Ich suche Kurse zu [Artificial Intelligence](topic)
+      - Ich suche Kurse zu [Künstliche Intelligenz](topic)
+      - Ich suche Kurse zum Thema [ML](topic)
+      - Ich suche Kurse zum Thema [Machine Learning](topic)
+      - Ich suche Kurse zum Thema [Data Science](topic)
+      - Ich suche Kurse zum Thema [Maschinelles Lernen](topic)
+      - Ich suche Kurse zum Thema [AI](topic)
+      - Ich suche Kurse zum Thema [KI](topic)
+      - Ich suche Kurse zum Thema [Artificial Intelligence](topic)
+      - Ich suche Kurse zum Thema [Künstliche Intelligenz](topic)
+      - Welche Kurse habt ihr im Angebot ?
+      - Welche Kurse habt ihr zur Auswahl ?
+      - Welche Kurse habt ihr im Katalog ?
+      - Welche Kurse habt ihr online ?
+      - Welche Kurse hat der KI Campus im Angebot ?
+      - Welche Kurse hat der KI Campus zur Auswahl ?
+      - Welche Kurse hat der KI Campus im Katalog ?
+      - Welche Kurse hat der KI Campus online ?
+      - starte die kurssuche
+      - starte die suche
+      - beginne die kurssuche
+      - starte kurssuche
+
+  - intent: inform
+    examples: |
+      - gerne in [Englisch]{"entity": "language", "value": "englisch"}
+      - gerne in [Deutsch]{"entity": "language", "value": "deutsch"}
+      - gerne in [english]{"entity": "language", "value": "englisch"}
+      - gerne auf [Englisch]{"entity": "language", "value": "englisch"}
+      - gerne auf [Deutsch]{"entity": "language", "value": "deutsch"}
+      - lieber in [Englisch]{"entity": "language", "value": "englisch"}
+      - lieber in [Deutsch]{"entity": "language", "value": "deutsch"}
+      - lieber auf [Englisch]{"entity": "language", "value": "englisch"}
+      - lieber auf [Deutsch]{"entity": "language", "value": "deutsch"}
+      - ich möchte in [Englisch]{"entity": "language", "value": "englisch"}
+      - ich möchte in [Deutsch]{"entity": "language", "value": "deutsch"}
+      - ich möchte auf [Englisch]{"entity": "language", "value": "englisch"}
+      - ich möchte auf [Deutsch]{"entity": "language", "value": "deutsch"}
+      - in [Englisch]{"entity": "language", "value": "englisch"}
+      - in [Deutsch]{"entity": "language", "value": "deutsch"}
+      - auf [Englisch]{"entity": "language", "value": "englisch"}
+      - auf [Deutsch]{"entity": "language", "value": "deutsch"}
+      - Ich möchte in [EN]{"entity": "language", "value": "englisch"} .
+      - Ich möchte in [english]{"entity": "language", "value": "englisch"} .
+      - Ich möchte auf [EN]{"entity": "language", "value": "englisch"} .
+      - Ich möchte auf [english]{"entity": "language", "value": "englisch"} .
+      - Gerne in [EN]{"entity": "language", "value": "englisch"} .
+      - Gerne in [english]{"entity": "language", "value": "englisch"} .
+      - Gerne auf [EN]{"entity": "language", "value": "englisch"} .
+      - Gerne auf [english]{"entity": "language", "value": "englisch"} .
+      - Lieber in [EN]{"entity": "language", "value": "englisch"} .
+      - Lieber in [english]{"entity": "language", "value": "englisch"} .
+      - Lieber auf [EN]{"entity": "language", "value": "englisch"} .
+      - Lieber auf [english]{"entity": "language", "value": "englisch"} .
+      - in [EN]{"entity": "language", "value": "englisch"} .
+      - in [english]{"entity": "language", "value": "englisch"} .
+      - auf [EN]{"entity": "language", "value": "englisch"} .
+      - auf [english]{"entity": "language", "value": "englisch"} .
+      - Ich möchte in [DE]{"entity": "language", "value": "deutsch"} .
+      - Ich möchte in [german]{"entity": "language", "value": "deutsch"} .
+      - Ich möchte auf [DE]{"entity": "language", "value": "deutsch"} .
+      - Ich möchte auf [german]{"entity": "language", "value": "deutsch"} .
+      - Gerne in [DE]{"entity": "language", "value": "deutsch"} .
+      - Gerne in [german]{"entity": "language", "value": "deutsch"} .
+      - Gerne auf [DE]{"entity": "language", "value": "deutsch"} .
+      - Gerne auf [german]{"entity": "language", "value": "deutsch"} .
+      - Lieber in [DE]{"entity": "language", "value": "deutsch"} .
+      - Lieber in [german]{"entity": "language", "value": "deutsch"} .
+      - Lieber auf [DE]{"entity": "language", "value": "deutsch"} .
+      - Lieber auf [german]{"entity": "language", "value": "deutsch"} .
+      - in [DE]{"entity": "language", "value": "deutsch"} .
+      - in [german]{"entity": "language", "value": "deutsch"} .
+      - auf [DE]{"entity": "language", "value": "deutsch"} .
+      - auf [german]{"entity": "language", "value": "deutsch"} .
+      - [DE]{"entity": "language", "value": "deutsch"}
+      - [german]{"entity": "language", "value": "deutsch"}
+      - [EN]{"entity": "language", "value": "englisch"}
+
+      - ich schätze mich als [Einsteiger]{"entity": "level", "value": "Einsteiger"}
+      - ich schätze mich als [Einsteigerin]{"entity": "level", "value": "Einsteiger"}
+      - ich schätze mich als [Fortgeschritten]{"entity": "level", "value": "Fortgeschritten"}
+      - ich schätze mich als [Experte]{"entity": "level", "value": "Experte"}
+      - ich bin [Einsteiger]{"entity": "level", "value": "Einsteiger"}
+      - ich bin [Einsteigerin]{"entity": "level", "value": "Einsteiger"}
+      - ich bin [Fortgeschritten]{"entity": "level", "value": "Fortgeschritten"}
+      - ich bin [Experte]{"entity": "level", "value": "Experte"}
+      - ich schätze mich als [Anfänger]{"entity": "level", "value": "Einsteiger"}
+      - ich schätze mich als [Anfängerin]{"entity": "level", "value": "Einsteiger"}
+      - ich habe [keine Erfahrung]{"entity": "level", "value": "Einsteiger"}
+      - [keine Erfahrung]{"entity": "level", "value": "Einsteiger"}
+      - ich bin [Anfänger]{"entity": "level", "value": "Einsteiger"}
+      - ich bin [Anfängerin]{"entity": "level", "value": "Einsteiger"}
+      - ich bin [Fortgeschrittene]{"entity": "level", "value": "Fortgeschritten"}
+      - [Fortgeschrittene]{"entity": "level", "value": "Fortgeschritten"}
+      - ich schätze mich als [Fortgeschrittene]{"entity": "level", "value": "Fortgeschritten"}
+      - ich bin [Expertin]{"entity": "level", "value": "Experte"}
+      - [Expertin]{"entity": "level", "value": "Experte"}
+
+      - [Einführung in die KI]{"entity": "topic", "value": "KI-Einführung"}
+      - [Einführung KI]{"entity": "topic", "value": "KI-Einführung"}
+      - [Einstieg KI]{"entity": "topic", "value": "KI-Einführung"}
+      - [Einstieg in die KI]{"entity": "topic", "value": "KI-Einführung"}
+
+      - [Vertiefung einzelner Themenfelder der KI]{"entity": "topic", "value": "KI-Vertiefung"}
+      - [Vertiefung einzelner Themenfelder]{"entity": "topic", "value": "KI-Vertiefung"}
+      - [Vertiefung Themenfelder]{"entity": "topic", "value": "KI-Vertiefung"}
+      - [Vertiefung KI]{"entity": "topic", "value": "KI-Vertiefung"}
+
+      - [KI in Berufsfeldern]{"entity": "topic", "value": "KI-Berufsfelder"}
+      - [KI Berufsfelder]{"entity": "topic", "value": "KI-Berufsfelder"}
+      - [KI Beruf]{"entity": "topic", "value": "KI-Berufsfelder"}
+
+      - [KI und Gesellschaft]{"entity": "topic", "value": "KI-Gesellschaft"}
+      - [KI Gesellschaft]{"entity": "topic", "value": "KI-Gesellschaft"}
+      
+      - [Data Science]{"entity": "topic", "value": "Data Science"}
+
+      - [Maschinelles Lernen]{"entity": "topic", "value": "Maschinelles Lernen"}
+      - [ML]{"entity": "topic", "value": "Maschinelles Lernen"}
+      - [machine learning]{"entity": "topic", "value": "Maschinelles Lernen"}
+
+      - [zehn]{"entity": "max_duration", "value": "10"} h
+      - [zehn]{"entity": "max_duration", "value": "10"} Stunden
+      - [10]{"entity": "max_duration", "value": "10"}  h
+      - [10]{"entity": "max_duration", "value": "10"} Stunden
+      - [fünfzig]{"entity": "max_duration", "value": "50"} h
+      - [fünfzig]{"entity": "max_duration", "value": "50"} Stunden
+      - [50]{"entity": "max_duration", "value": "50"} h
+      - [50]{"entity": "max_duration", "value": "50"} Stunden
+      - [über fünfzig]{"entity": "max_duration", "value": "51"} h
+      - [über fünfzig]{"entity": "max_duration", "value": "51"} Stunden
+      - [über 50]{"entity": "max_duration", "value": "51"} h
+      - [über 50]{"entity": "max_duration", "value": "51"} Stunden
+      - [mehr als 50]{"entity": "max_duration", "value": "51"} h
+      - [mehr als 50]{"entity": "max_duration", "value": "51"} Stunden
+      - [mehr als fünfzig]{"entity": "max_duration", "value": "51"} 
+
+      - [Leistungsnachweis]{"entity": "certificate", "value": "Leistungsnachweis"}
+      - [mit Note]{"entity": "certificate", "value": "Leistungsnachweis"}
+      - [benotete Teilnahme]{"entity": "certificate", "value": "Leistungsnachweis"}
+      - [benotet]{"entity": "certificate", "value": "Leistungsnachweis"}
+      - [Teilnahmebescheinigung]{"entity": "certificate", "value": "Teilnahmeschein"}
+      - [nur teilnehmen]{"entity": "certificate", "value": "Teilnahmeschein"}
+      - [nur Teilnhame]{"entity": "certificate", "value": "Teilnahmeschein"}
+      - [Teilnahme]{"entity": "certificate", "value": "Teilnahmeschein"}
+      - [Anwesenheit]{"entity": "certificate", "value": "Teilnahmeschein"}
+
+  - intent: stop_form
+    examples: |
+      - stop
+      - anhalten
+      - halt
+      - ich möchte die kurssuche beenden
+      - ich will die Suche stoppen
+      - ich will die Suche anhalten
+      - ich will die Suche beenden
+      - ich will die Befragung stoppen
+      - ich will die Befragung anhalten
+      - ich will die Befragung beenden
+      - ich will die kurssuche stoppen
+      - ich will die kurssuche anhalten
+      - ich will die kurssuche beenden
+      - ich möchte die Suche stoppen
+      - ich möchte die Suche anhalten
+      - ich möchte die Suche beenden
+      - ich möchte die Befragung stoppen
+      - ich möchte die Befragung anhalten
+      - ich möchte die Befragung beenden
+      - ich möchte die kurssuche stoppen
+      - ich möchte die kurssuche anhalten
+      - ich möchte die kurssuche beenden
+      - ich möchte die kurssuche abbrechen
+      - bitte beenden
+      - bitte stoppen
+      - befragnung anhalten
+      - kurssuche beenden
+      - suche abbrechen
+      - abbruch
+      - bitte abbrechen
+      - sofort abbrechen
+      - ich will abbrechen
+
+# synonyme course_form  
+  - synonym: Teilnahmeschein
+    examples: |
+      - Teilnahme
+      - Bescheinigung
+      - Anwesenheit
+      - nur teilnehmen
+      - nur Teilnahme
+  - synonym: Leistungsnachweis
+    examples: |
+      - mit Note
+      - benotete Teilnahme
+      - bewertete Teilnahme
+      - benotet
+  - synonym: englisch
+    examples: |
+      - EN
+      - english
+      - Englisch
+  - synonym: deutsch
+    examples: |
+      - DE
+      - german
+      - Deutsch
+  - synonym: KI-Einführung
+    examples: |
+      - Einführung in die KI
+      - Einführung AI
+      - Einstieg in die KI
+      - Einführung KI
+      - Einstieg KI
+  - synonym: KI-Vertiefung
+    examples: |
+      - Vertiefung einzelner Themenfelder der KI
+      - Vertiefung einzelner Themenfelder
+      - Vertiefung Themenfelder
+      - Vertiefung KI
+  - synonym: KI-Berufsfelder
+    examples: |
+      - KI in Berufsfeldern
+      - KI Beruf
+      - KI Berufsfelder
+  - synonym: KI-Gesellschaft
+    examples: |
+      - KI und Gesellschaft
+      - KI Gesellschaft
+  - synonym: Maschinelles Lernen
+    examples: |
+      - ML
+      - Machine Learning
+  - synonym: Einsteiger
+    examples: |
+      - Einsteigerin
+      - Anfängerin
+      - keine Erfahrung
+      - einsteiger
+  - synonym: Fortgeschritten
+    examples: |
+      - Fortgeschrittene
+  - synonym: Experte
+    examples: |
+      - Expertin
+  - synonym: '10'
+    examples: |
+      - zehn
+      - Zehn
+      - ten
+  - synonym: '50'
+    examples: |
+      - fünfzig
+      - fifty
+  - synonym: '51'
+    examples: |
+      - mehr als fünfzig
+      - über fünfzig
+      - mehr als 50
+      - über 50
+  # - regex: max_duration
+  #   - \b[a-zA-Z*] \d{2}|[a-zA-Z*]\b
+
+

@@ -1,0 +1,84 @@
+version: '2.0'
+
+nlu:
+
+  - intent: FAQ_time
+    examples: |
+      - Meinst du wöchentlich ?
+      - Meinst du monatlich ?
+      - Meinst du stündlich ?
+      - Den Monat ?
+      - In einem Monat ?
+      - Die Woche ?
+      - In einer Woche ?
+      - Wie ist die Dauer gemeint?
+      - Wie ist die Zeitangabe gemeint?
+      - Wie ist die Stundenzahl gemeint?
+      - Wie ist die Zeitraum gemeint?
+      - pro Woche?
+      - pro Monat?
+      - Erkläre die Dauer
+      - Erkläre die Zeitangabe
+      - Erkläre die Stundenzahl
+      - Erkläre die Zeitraum
+      - Habt ihr nur [Deutsch](language)?
+      - Habt ihr nur [Englisch](language)?
+      - Habt ihr auch spanisch
+      - Habt ihr auch holländisch
+      - Habt ihr auch französisch
+      - Habt ihr auch portugisisch
+      - Habt ihr auch polnisch
+      - Habt ihr auch andere Sprachen
+      - ich möchte auf spanisch
+      - ich möchte auf holländisch
+      - ich möchte auf französisch
+      - ich möchte auf portugisisch
+      - ich möchte auf polnisch
+      - gerne auf spanisch
+      - gerne auf holländisch
+      - gerne auf französisch
+      - gerne auf portugisisch
+      - gerne auf polnisch
+      - was ist mit spanisch
+      - was ist mit holländisch
+      - was ist mit französisch
+      - was ist mit portugisisch
+      - was ist mit polnisch
+      - spanisch
+      - holländisch
+      - französisch
+      - portugisisch
+      - polnisch
+      - andere Sprachen
+
+  - intent: FAQ_costs
+    examples: |
+      - Wie teuer ist das ?
+      - Wie teuer sind die Kurse ?
+      - Wie teuer ?
+      - Kostet die Kurse was?
+      - Kostet das was?
+      - Wie sind die Kosten für die Kurse ?
+      - Wie sind die Kosten ?
+      - Wie sind die Preise für die Kurse ?
+      - Wie sind die Preise ?
+      - Was sind die Kosten für die Kurse ?
+      - Was sind die Kosten ?
+      - Was sind die Preise für die Kurse ?
+      - Was sind die Preise ?
+      - Muss man die Kurse bezahlen?
+      - Muss man Geld bezahlen?
+      - Sind die Kurse frei ?
+      - Sind die Kurse kostenlos ?
+
+  - intent: FAQ_languages
+    examples: |
+      - Welche Sprachen verwendet ihr?
+      - Welche Sprachen habt ihr?
+      - Gibt es auch alternative ?
+      - Gibt es auch mehr ?
+      - Gibt es auch andere Sprachen ?
+      - Bitte Sprachoptionen?
+      - Mehr Sprachoptionen?
+      - Weitere Sprachoptionen?
+      - Sprachoptionen?
