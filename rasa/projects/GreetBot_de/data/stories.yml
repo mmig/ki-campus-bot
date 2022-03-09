@@ -8,6 +8,9 @@ stories:
   - action: action_fetch_profile
   - slot_was_set:
     - user_id: "22218451-41f0-23dd-c50f-cdd8096610c1"
+    - enrollments: "Einführung in die KI"
+    - course_visits: "Big Data Analytics"
+    - search_terms: "KI"
   - action: utter_greet
   - action: utter_profile_slots
 
@@ -29,4 +32,7 @@ stories:
   - action: action_fetch_profile
   - slot_was_set:
     - user_id: None
+    - enrollments: []
+    - course_visits: []
+    - search_terms: []
   - action: utter_greet

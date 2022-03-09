@@ -2,6 +2,8 @@
 
 ## Setup
 
+Rasa Version 2.6
+
 ### Training of the Model (de)
 
 Inside /rasa train the chatbot
