@@ -33,9 +33,5 @@ importers:
 - name: MultiProjectImporter
 
 imports:
-<<<<<<< HEAD:rasa/config_de.yml
-- projects/KI-Campus_de
-- projects/DFKIBot_de
-=======
   - ./GreetBot_de
->>>>>>> upstream/master:rasa/KI-Campus_de/config.yml
+  - ./DFKIBot_de

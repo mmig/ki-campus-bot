@@ -9,7 +9,34 @@ actions:
 - utter_goodbye
 - utter_you_are_welcome
 - utter_end_of_conversation
+# added dfki 
+- action_fetch_profile
+- utter_profile_slots
+
+# added dfki
+slots:
+  user_id:
+    type: text
+    mappings:
+    - type: custom
+    influence_conversation: true
+  enrollments:
+    type: list
+    mappings:
+    - type: custom
+  course_visits:
+    type: list
+    mappings:
+    - type: custom
+  search_terms:
+    type: list
+    mappings:
+    - type: custom
+
 responses:
+# added dfki
+  utter_profile_slots:
+  - text: "user_id: {user_id}, enrollments: {enrollments}, course_visits: {course_visits}, search_terms: {search_terms}"
   utter_end_of_conversation:
   - custom:
       signal: End of Conversation

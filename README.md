@@ -1,28 +1,19 @@
-# DFKI Course Search Bot testing
+### Version 3.0
 
-## Setup
+# DFKI:
 
-Rasa Version 2.6
+## Usage
 
-### Training of the Model (de)
+Change to 'for local development' endpoint in endpoints.yml
 
-Inside /rasa train the chatbot
+### Usage alternative
 
-```sh
-    rasa train -c config_de.yml --out models/KI-Campus_de
-```
-### Usage
-
-Inside /rasa start the chatbot and run the action server
+In folder with the chatbot
 
 ```sh
-    rasa shell -m models/KI-Campus_de
-```
-```sh
-    rasa run actions
+    rasa shell
 ```
 ___________________
-
 # KI-Campus Chatbot
 
 ## Training of the Model 

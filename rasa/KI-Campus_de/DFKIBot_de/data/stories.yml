@@ -1,0 +1,64 @@
+version: '3.0'
+
+stories:
+
+# course search
+  - story: languages interjection
+    steps:
+    - intent: start_coursesearch_form
+    - action: utter_introduce_coursesearch_form
+    - action: coursesearch_form
+    - active_loop: coursesearch_form
+    - intent: FAQ_languages
+    - action: utter_FAQ_languages
+    - action: coursesearch_form
+
+  - story: time interjection
+    steps:
+    - intent: start_coursesearch_form
+    - action: utter_introduce_coursesearch_form
+    - action: coursesearch_form
+    - active_loop: coursesearch_form
+    - intent: FAQ_time
+    - action: utter_FAQ_time
+    - action: coursesearch_form
+
+  - story: costs interjection
+    steps:
+    - intent: start_coursesearch_form
+    - action: utter_introduce_coursesearch_form
+    - action: coursesearch_form
+    - active_loop: coursesearch_form
+    - intent: FAQ_costs
+    - action: utter_FAQ_costs
+    - action: coursesearch_form
+
+  - story: stop course form happy
+    steps:
+    - intent: start_coursesearch_form 
+    - action: utter_introduce_coursesearch_form
+    - action: coursesearch_form    
+    - active_loop: coursesearch_form
+    - intent: stop_form
+    - action: utter_ask_continue_coursesearch_form
+    - or:
+      - intent: stop_form
+      - intent: affirm
+    - action: action_deactivate_loop
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - intent: goodbye
+    - action: utter_goodbye
+
+  - story: stop course form unhappy
+    steps:
+    - intent: start_coursesearch_form 
+    - action: utter_introduce_coursesearch_form
+    - action: coursesearch_form    
+    - active_loop: coursesearch_form
+    - intent: stop_form
+    - action: utter_ask_continue_coursesearch_form
+    - or:
+      - intent: deny
+    - action: coursesearch_form
