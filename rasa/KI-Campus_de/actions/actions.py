@@ -161,40 +161,6 @@ class ActionGetCertificate(Action):
 
 ############# DFKI ###############
 
-# ALLOWED_LANGUAGES = ['deutsch', 'englisch']
-# ALLOWED_TOPICS = ['ki-einführung', 'ki-vertiefung', 'ki-berufsfelder', 'ki-gesellschaft', 'data science', 'maschinelles lernen', 'egal']
-
-class ActionFetchProfile(Action):
-    
-    def name(self) -> Text:
-        return "action_fetch_profile"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        AllSlotsReset()
-            
-        if random.randint(0,9) > 4: user_id = "22218451-41f0-23dd-c50f-cdd8096610c1"
-        else: return [SlotSet("user_id", None), SlotSet("enrollments", []), SlotSet("course_visits", []), SlotSet("search_terms", []), dispatcher.utter_message(text="User ist nicht eingeloggt.")]
-        # if re.search(".*", user_id): SlotSet("user_id", user_id) # create regex
-        # else: return [SlotSet("user_id", None), dispatcher.utter_message("User ist nicht eingeloggt.")]
-
-        enrollments = ["Einführung in die KI", "Mensch-Maschine-Interaktion"]
-        # if not enrollments: SlotSet("enrollments", None)
-        # else: SlotSet("enrollments", enrollments)
-
-        course_visits = ["Big Data Analytics"]
-        # if not course_visits: SlotSet("course_visits", None)
-        # else: SlotSet("course_visits", course_visits)
-
-        search_terms = ["KI", "Machine Learning"]
-        # if not search_terms: SlotSet("search_terms", None)
-        # else: SlotSet("search_terms", search_terms)
-
-        dispatcher.utter_message(text="action ausgeführt")
-        return [SlotSet("user_id", user_id), SlotSet("enrollments", enrollments), SlotSet("course_visits", course_visits), SlotSet("search_terms", search_terms)]
-
 class ActionRestart(Action):
 
     def name(self) -> Text:
@@ -209,6 +175,56 @@ class ActionRestart(Action):
 
         return [Restarted()]
 
+class ActionCheckLogin(Action):
+
+    def name(self) -> Text:
+        return "action_check_login"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        user_login = random.choice([True, False]) # to do: implement login check
+
+        return [SlotSet("user_login", user_login)]
+
+class ActionFetchProfile(Action):
+    
+    def name(self) -> Text:
+        return "action_fetch_profile"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+        user_id = "22218451-41f0-23dd-c50f-cdd8096610c1"
+		# if random.randint(0,9) > 4: user_id = "22218451-41f0-23dd-c50f-cdd8096610c1"
+        #else: return [SlotSet("user_id", None), SlotSet("enrollments", []), SlotSet("course_visits", []), SlotSet("search_terms", []), dispatcher.utter_message(text="User ist nicht eingeloggt.")]
+        
+		# if re.search(".*", user_id): SlotSet("user_id", user_id) # create regex
+        # else: return [SlotSet("user_id", None), dispatcher.utter_message("User ist nicht eingeloggt.")]
+		
+        enrollments = ["Einführung in die KI", "Mensch-Maschine-Interaktion"]
+        # if not enrollments: SlotSet("enrollments", None)
+        # else: SlotSet("enrollments", enrollments)
+
+        course_visits = ["Big Data Analytics"]
+        # if not course_visits: SlotSet("course_visits", None)
+        # else: SlotSet("course_visits", course_visits)
+
+        search_terms = ["KI", "Machine Learning"]
+        # if not search_terms: SlotSet("search_terms", None)
+        # else: SlotSet("search_terms", search_terms)
+		
+
+        dispatcher.utter_message(text = "action_fetch_profile ausgeführt") #to do: delete, just for checkup
+		
+        return [SlotSet("user_id", user_id), SlotSet("enrollments", enrollments), SlotSet("course_visits", course_visits), SlotSet("search_terms", search_terms)]
+
+######################################################################################
+# RECOMMENDER
+######################################################################################
+
 class ActionGetLearningRecommendation(Action):
 
     def name(self) -> Text:
@@ -222,43 +238,260 @@ class ActionGetLearningRecommendation(Action):
         topic = str(tracker.get_slot("topic"))
         level = str(tracker.get_slot("level"))
         max_duration = int(tracker.get_slot("max_duration")) 
-        certificate = int(tracker.get_slot("certificate"))
+        certificate = str(tracker.get_slot("certificate"))
         enrollments = tracker.get_slot("enrollments")
         course_visits = tracker.get_slot("course_visits")
         search_terms = tracker.get_slot("search_terms")
         
+		# to do: implement recommender and different utterances depending on recommendationsnicht
+		# to do: implement that it works after slot changed
+        dispatcher.utter_message(text = "Also, ich empfehle dir folgende Lernangebote: \n\nLernangebot Beispiel")
         return []
 
-# class ValidateCourseSearchForm(FormValidationAction):
+class ActionAdditionalLearningRecommendation(Action):
+
+    def name(self) -> Text:
+        return "action_additional_learning_recommendation"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # to do: implement search for more recommendations
+        dispatcher.utter_message(text = "Hier habe ich weitere Empfehlungen für dich: \n\nLernangebot Beispiel")
+        return []
+
+# class ActionChangeLearningRecommendation():
+
 #     def name(self) -> Text:
-#         return "validate_coursesearch_form"
+#         return "action_change_learning_recommendation"
 
-#     def validate_language(
-#         self,
-#         slot_value: Any,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-#     ) -> Dict[Text, Any]:
-#         """Validate `language` value."""
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-#         if slot_value.lower() not in ALLOWED_LANGUAGES:
-#             dispatcher.utter_message(text=f"Momentan bieten wir nur Kurse in den Sprachen Deutsch und Englisch an!")
-#             return {"language": None}
-#         dispatcher.utter_message()
-#         return {"language": slot_value.lower()}
+# 		# to do: implement search with new parameter
+	
+#         dispatcher.utter_message(text = "Also, ich empfehle dir folgende Lernangebote: \n\nLernangebot Beispiel")
+#         return []
 
-#     def validate_topic(
-#         self,
-#         slot_value: Any,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-#     ) -> Dict[Text, Any]:
-#         """Validate `topic` value."""
+##########################################################################################
+# FORMS & SLOTS
+##########################################################################################
 
-#         if slot_value not in ALLOWED_TOPICS:
-#             dispatcher.utter_message(text=f"Wir bieten zu diesem Themenfeld keine Kurse an! Bitte wähle eins der aufgelisteten Themen.")
-#             return {"topic": None}
-#         dispatcher.utter_message()
-#         return {"topic": slot_value.lower()}
+class ActionDeleteSlotValue(Action):
+    def name(self):
+        return 'action_delete_slot_value'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+		# check intent then delete slot	value
+        intent = str(tracker.get_intent_of_latest_message())
+        print(f"{intent}") # to do: delete - checking function
+        if  intent == 'change_language_slot': return [SlotSet("language", None)]
+        elif  intent == 'change_topic_slot': return [SlotSet("topic", None)]
+        elif  intent == 'change_level_slot': return [SlotSet("level", None)]
+        elif  intent == 'change_max_duration_slot': return [SlotSet("max_duration", None)]
+        elif  intent == 'change_certificate_slot': return [SlotSet("certificate", None)]
+        else:  return [dispatcher.utter_message('Kein Slot Value gelöscht')]
+
+class ActionAskLanguage(Action):
+    def name(self):
+        return 'action_ask_language'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+		# check if slot value should get changed
+        intent = str(tracker.get_intent_of_latest_message())
+        if intent == 'change_language_slot':
+            text = "Wie ich verstanden habe, möchtest du die Sprache für deine Kursempfehlungen ändern. Wähle eine der Sprachoptionen aus!"
+            buttons = [{'title': 'Deutsch', 'payload': '/inform_coursesearch{"language":"Deutsch"}'},
+    			{'title': 'Englisch', 'payload': '/inform_coursesearch{"language":"Englisch"}'},
+				{'title': 'Beide Sprachen', 'payload': '/undecided'}]
+            dispatcher.utter_message(text = text, buttons = buttons)
+		# default question
+        else:
+            text = "Soll der Kurs auf Deutsch oder auf Englisch sein?"
+            buttons = [{'title': 'Deutsch', 'payload': '/inform_coursesearch{"language":"Deutsch"}'},
+    			{'title': 'Englisch', 'payload': '/inform_coursesearch{"language":"Englisch"}'},
+				{'title': 'Beide Sprachen', 'payload': '/undecided'}]
+            dispatcher.utter_message(text = text, buttons = buttons)
+        return []
+
+class ActionAskTopic(Action):
+    def name(self):
+        return 'action_ask_topic'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        intent = str(tracker.get_intent_of_latest_message())
+        if intent == 'change_topic_slot':
+            text = "Du möchtest also das Thema für deine Kursempfehlungen ändern. Hier hast du eine Auswahl unserer angebotenen Themen:"
+            buttons = [{'title': 'Einführung in die KI', 'payload': '/inform_coursesearch{"topic":"ki-einführung"}'},
+    		    {'title': 'Vertiefung einzelner Themenfelder der KI', 'payload': '/inform_coursesearch{"topic":"ki-vertiefung"}'},
+			    {'title': 'KI in Berufsfeldern', 'payload': '/inform_coursesearch{"topic":"ki-berufsfelder"}'},
+			    {'title': 'KI und Gesellschaft', 'payload': '/inform_coursesearch{"topic":"ki-gesellschaft"}'},
+			    {'title': 'Data Science', 'payload': '/inform_coursesearch{"topic":"Data Science"}'},
+			    {'title': 'Maschinelles Lernen', 'payload': '/inform_coursesearch{"topic":"Maschinelles Lernen"}'},
+			    {'title': 'egal', 'payload': '/undecided'}]
+            dispatcher.utter_message(text = text, buttons = buttons)
+        else:
+            text = "Worum soll es in deinem Wunsschkurs gehen? Wähle eins der folgenden Themenfelder!"
+            buttons = [{'title': 'Einführung in die KI', 'payload': '/inform_coursesearch{"topic":"ki-einführung"}'},
+    		    {'title': 'Vertiefung einzelner Themenfelder der KI', 'payload': '/inform_coursesearch{"topic":"ki-vertiefung"}'},
+			    {'title': 'KI in Berufsfeldern', 'payload': '/inform_coursesearch{"topic":"ki-berufsfelder"}'},
+			    {'title': 'KI und Gesellschaft', 'payload': '/inform_coursesearch{"topic":"ki-gesellschaft"}'},
+			    {'title': 'Data Science', 'payload': '/inform_coursesearch{"topic":"Data Science"}'},
+			    {'title': 'Maschinelles Lernen', 'payload': '/inform_coursesearch{"topic":"Maschinelles Lernen"}'},
+			    {'title': 'egal', 'payload': '/undecided'}]
+            dispatcher.utter_message(text = text, buttons = buttons)
+        return []
+
+class ActionAskLevel(Action):
+    def name(self):
+        return 'action_ask_level'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        intent = str(tracker.get_intent_of_latest_message())
+        if intent == 'change_level_slot':
+            text = "Du möchtest also das Level von deinem Wunschkurs ändern. Die Kurse auf dem KI-Campus haben die folgenden Level zur Auswahl:"
+            buttons = [{'title': 'Anfänger*in', 'payload': '/inform_coursesearch{"level":"Anfänger"}'},
+    		{'title': 'Fortgeschrittene*r', 'payload': '/inform_coursesearch{"level":"Fortgeschritten"}'},
+			{'title': 'Experte', 'payload': '/inform_coursesearch/inform_coursesearch{"level":"Experte"}'}]
+        
+            dispatcher.utter_message(text = text, buttons = buttons)
+        else:
+            text = "Wie schätzt du deine Vorkenntnisse im Bereich KI ein?"
+            buttons = [{'title': 'Afänger*in', 'payload': '/inform_coursesearch{"level":"Anfänger"}'},
+    		{'title': 'Fortgeschrittene*r', 'payload': '/inform_coursesearch{"level":"Fortgeschritten"}'},
+			{'title': 'Experte', 'payload': '/inform_coursesearch/inform_coursesearch{"level":"Experte"}'}]
+        
+            dispatcher.utter_message(text = text, buttons = buttons)
+        return []
+
+class ActionAskMaxDuration(Action):
+    def name(self):
+        return 'action_ask_max_duration'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        intent = str(tracker.get_intent_of_latest_message())
+        if intent == 'change_max_duration_slot':
+            text = "Wir haben unsere Kurse nach ihrer gesamten Stundenzahl unterteilt, wähle die für dich passende Kursdauer!"
+            buttons = [{'title': 'bis zu 10 Stunden', 'payload': '/inform_coursesearch{"max_duration":"10"}'},
+    		{'title': 'maximal 50 Stunden', 'payload': '/inform_coursesearch{"max_duration":"50"}'},
+			{'title': 'auch über 50 Stunden', 'payload': '/inform_coursesearch{"max_duration":"51"}'}]
+        
+            dispatcher.utter_message(text = text, buttons = buttons)
+        else:
+            text = "Wie umfangreich darf das Lernangebot insgesamt sein?"
+            buttons = [{'title': 'bis zu 10 Stunden', 'payload': '/inform_coursesearch{"max_duration":"10"}'},
+    		{'title': 'maximal 50 Stunden', 'payload': '/inform_coursesearch{"max_duration":"50"}'},
+			{'title': 'auch über 50 Stunden', 'payload': '/inform_coursesearch{"max_duration":"51"}'}]
+        
+            dispatcher.utter_message(text = text, buttons = buttons)
+        return []
+
+class ActionAskCertificate(Action):
+    def name(self):
+        return 'action_ask_certificate'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        intent = str(tracker.get_intent_of_latest_message())
+        if intent == 'change_certificate_slot':
+            text = "Wie ich verstanden habe, möchtest du einen neuen Nachweis wählen, den du in deinem Wunschkurs erhalten kannst. Wir haben zwei Optionen:"
+            buttons = [{'title': 'unbenotete Teilnahmebescheinigung', 'payload': '/inform_coursesearch{"certificate":"Teilnahmebescheinigung"}'},
+    		{'title': 'benoteter Leistungsnachweis', 'payload': '/inform_coursesearch{"certificate":"Leistungsnachweis"}'},
+			{'title': 'egal', 'payload': '/undecided'}]
+        
+            dispatcher.utter_message(text = text, buttons = buttons)
+        else:
+            text = "Welcher Nachweis ist dir wichtig?"
+            buttons = [{'title': 'unbenotete Teilnahmebescheinigung', 'payload': '/inform_coursesearch{"certificate":"Teilnahmebescheinigung"}'},
+    		{'title': 'benoteter Leistungsnachweis', 'payload': '/inform_coursesearch{"certificate":"Leistungsnachweis"}'},
+			{'title': 'egal', 'payload': '/undecided'}]
+        
+            dispatcher.utter_message(text = text, buttons = buttons)
+        return []
+
+class ValidateCourseSearchForm(FormValidationAction):
+	def name(self) -> Text:
+		return "validate_coursesearch_form"
+	
+	@staticmethod
+	def language_db() -> List[Text]:
+		"""Database of supported languages"""
+		return ["deutsch", "englisch", "egal"]
+
+	@staticmethod
+	def language_no_support_db() -> List[Text]:
+		"""Database of not supported languages"""
+		return ["spanisch", "französisch", "robotisch", "russisch", "slowakisch", "katalanisch", "tschechisch", "mandarin", "hindi", "niederländisch", "schwedisch"]
+
+	@staticmethod
+	def topic_db() -> List[Text]:
+		"""Database of topics"""
+		return ['ki-einführung', 'ki-vertiefung', 'ki-berufsfelder', 'ki-gesellschaft', 'data science', 'maschinelles lernen', 'egal']
+	
+	@staticmethod
+	def certificate_db() -> List[Text]:
+		"""Database of certificates"""
+		return ["teilnahmebescheinigung", "leistungsnachweis", "egal"]
+
+	@staticmethod
+	def duration_db() -> List[Text]:
+		"""Database of durations"""
+		return ["0", "10", "50", "51"]
+	
+	@staticmethod
+	def duration_db() -> List[Text]:
+		"""Database of levels"""
+		return ["einsteiger", "fortgeschritten", "experte"]
+
+	def validate_language(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+		"""Validate language"""
+	
+		if slot_value.lower() in self.language_db():
+			return {"language": slot_value.lower()}
+		elif slot_value.lower() in self.language_no_support_db():
+			lang = str(slot_value).capitalize()
+			print(lang) # for testing
+			dispatcher.utter_message(text = f"Der KI-Campus bietet keine Kurse auf {lang} an. Wir bieten Kurse auf Deutsch und Englisch an. Unser Angebot in diesen beiden Sprachen wird fortlaufend ausgebaut.")
+			return {"language": None}
+		else:
+			dispatcher.utter_message(response = "utter_interjection_languages")
+			return {"language": None}
+
+	def validate_topic(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+		"""Validate topic"""	
+		if slot_value.lower() in self.topic_db():
+			return {"topic": slot_value.lower()}
+		else:
+			dispatcher.utter_message("Dieses Thema kenne ich leider nicht. Damit du einen guten Überblick hast, habe ich dir eine Auswahl unserer Themenkategorien vorbereitet.")
+			return {"topic": None}

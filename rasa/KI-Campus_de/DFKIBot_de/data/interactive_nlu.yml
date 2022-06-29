@@ -1,0 +1,60 @@
+version: "3.0"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hallo kim
+    - hi kim
+    - hallöchen
+- intent: start_coursesearch_form
+  examples: |
+    - kannst du mir einen kurs suchen
+    - ich suche einen kurs
+    - ich suche nen kurs zum thema [ki]{"entity": "topic", "value": "KI"}
+    - empfehle mir einen kurs!
+- intent: affirm
+  examples: |
+    - ja
+- intent: negative_feedback
+  examples: |
+    - das waren schlechte Empfehlungen
+- intent: change_language_slot
+  examples: |
+    - kannst du die sprache der empfehlung ändern?
+    - Kann ich die Sprache ändern?
+    - ändere die Sprache auf [Englisch]{"entity": "language", "value": "englisch"}
+- intent: additional_learning_recommendation
+  examples: |
+    - gib mir weitere empfehlungen
+    - hast du noch mehr empfehlungen für mich?
+- intent: thank
+  examples: |
+    - danke das wars
+    - das wars
+- intent: deny
+  examples: |
+    - nein
+    - nein danke
+- intent: interjection_languages
+  examples: |
+    - welche sprachen habt ihr noch
+    - welche sprachen habt ir?
+- intent: interjection_costs
+  examples: |
+    - Kosten die Kurse was?
+- intent: interjection_topic
+  examples: |
+    - was für themen habt ihr überhaupt?
+    - was für themen habt ihr sonst noch?
+- intent: change_topic_slot
+  examples: |
+    - hast du mehr empfehlungen zum thema [ki]{"entity": "topic", "value": "KI"}?
+    - Kannst du das Thema bitte ändern für die Empfehlung
+- intent: faq
+  examples: |
+    - Was ist KI?
+    - an wen richtet sich der KI Campus
+    - Was ist ein MOOC
+- synonym: KI
+  examples: |
+    - ki

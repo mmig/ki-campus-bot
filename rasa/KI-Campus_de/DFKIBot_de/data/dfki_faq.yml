@@ -2,7 +2,7 @@ version: '3.0'
 
 nlu:
 
-  - intent: FAQ_time
+  - intent: interjection_time
     examples: |
       - Meinst du wöchentlich ?
       - Meinst du monatlich ?
@@ -21,37 +21,8 @@ nlu:
       - Erkläre die Zeitangabe
       - Erkläre die Stundenzahl
       - Erkläre die Zeitraum
-      - Habt ihr nur [Deutsch](language)?
-      - Habt ihr nur [Englisch](language)?
-      - Habt ihr auch spanisch
-      - Habt ihr auch holländisch
-      - Habt ihr auch französisch
-      - Habt ihr auch portugisisch
-      - Habt ihr auch polnisch
-      - Habt ihr auch andere Sprachen
-      - ich möchte auf spanisch
-      - ich möchte auf holländisch
-      - ich möchte auf französisch
-      - ich möchte auf portugisisch
-      - ich möchte auf polnisch
-      - gerne auf spanisch
-      - gerne auf holländisch
-      - gerne auf französisch
-      - gerne auf portugisisch
-      - gerne auf polnisch
-      - was ist mit spanisch
-      - was ist mit holländisch
-      - was ist mit französisch
-      - was ist mit portugisisch
-      - was ist mit polnisch
-      - spanisch
-      - holländisch
-      - französisch
-      - portugisisch
-      - polnisch
-      - andere Sprachen
-
-  - intent: FAQ_costs
+      
+  - intent: interjection_costs
     examples: |
       - Wie teuer ist das ?
       - Wie teuer sind die Kurse ?
@@ -71,7 +42,7 @@ nlu:
       - Sind die Kurse frei ?
       - Sind die Kurse kostenlos ?
 
-  - intent: FAQ_languages
+  - intent: interjection_languages
     examples: |
       - Welche Sprachen verwendet ihr?
       - Welche Sprachen habt ihr?
@@ -82,3 +53,19 @@ nlu:
       - Mehr Sprachoptionen?
       - Weitere Sprachoptionen?
       - Sprachoptionen?
+      - Habt ihr nur [Deutsch](language)?
+      - Habt ihr nur [Englisch](language)?
+      - andere Sprachen
+
+  - intent: interjection_topic
+    examples: |
+      - Habt ihr auch andere Themen?
+      - Weitere Themenfelder
+      - Mehr Themen
+      - Habt ihr auch Kurse zu [Statistik]{"entity": "topic", "value": "Einführung R"}
+      - Gibt es auch was über [Statistik]{"entity": "topic", "value": "Einführung R"}
+      - Andere Themen
+      - Kannst du mir mehr Themen nennen?
+      - Ich suche ein anderes Thema
+      - Anderes Thema
+      - Anderes Themenfeld

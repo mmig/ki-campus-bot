@@ -10,46 +10,30 @@ actions:
 - utter_you_are_welcome
 - utter_end_of_conversation
 # added dfki 
-- action_fetch_profile
-- utter_profile_slots
-
-# added dfki
-slots:
-  user_id:
-    type: text
-    mappings:
-    - type: custom
-    influence_conversation: true
-  enrollments:
-    type: list
-    mappings:
-    - type: custom
-  course_visits:
-    type: list
-    mappings:
-    - type: custom
-  search_terms:
-    type: list
-    mappings:
-    - type: custom
+- utter_how_can_i_help
+- utter_tip_formulation
 
 responses:
-# added dfki
-  utter_profile_slots:
-  - text: "user_id: {user_id}, enrollments: {enrollments}, course_visits: {course_visits}, search_terms: {search_terms}"
   utter_end_of_conversation:
   - custom:
       signal: End of Conversation
   utter_anything_else:
   - text: Kann ich dir noch mit etwas anderem behilflich sein?
+
   utter_greet:
-  - text: Hey, wie kann ich dir helfen?
-  - text: Hey, was kann ich für dich tun?
+  - text: Hallo!👋 Ich bin KIm, dein virtueller Assistent! Ich beantworte deine Fragen rund um den KI-Campus und helfe dir dabei, deinen Wunschkurs zu finden. Ich muss noch einiges dazulernen, deine Fragen werden mir dabei helfen. Frag mich also alles, was du zum KI-Campus wissen möchtest! 
+  # added dfki
+  utter_how_can_i_help:
+  - text: Wie kann ich dir helfen? Stell mir deine Fragen oder starte die Kurssuche!
+  utter_tip_formulation:
+  - text: "💡Übrigens: Ich verstehe dich am besten, wenn du deine Fragen kurz und präzise formulierst!"
+
   utter_goodbye:
   - text: Auf Wiedersehen!
   utter_you_are_welcome:
   - text: Bitte sehr.
   - text: Es ist immer schön, hilfreich zu sein.
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

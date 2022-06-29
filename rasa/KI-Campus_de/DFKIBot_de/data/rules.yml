@@ -1,24 +1,36 @@
 version: '3.0'
 
 rules:
-# course search
-  - rule: activate course form
+
+  - rule: restart conversation
     steps:
-      - intent: start_coursesearch_form # intent that triggers form activation
-      - action: utter_introduce_coursesearch_form
-      - action: coursesearch_form      # run the form
-      - active_loop: coursesearch_form # this form is active
+    - intent: restart
+    - action: action_restart
+
+# course search
 
   - rule: submit course form
     condition:
     - active_loop: coursesearch_form   # this form must be active
     steps:
-      - action: coursesearch_form      # run the form
-      - active_loop: null            # the form is no longer active because it has been filled
-      - action: utter_submit_coursesearch_form
-      - action: utter_slots_values   # action to take after the form is complete
+    - action: coursesearch_form      # run the form
+    - active_loop: null            # the form is no longer active because it has been filled
+    - action: utter_submit_coursesearch_form
+    - action: action_get_learning_recommendation  # action to take after the form is complete
+    - action: utter_anything_else_v2
+    
+    #- checkpoint: more_information
+    # to do: implement goodbye in rules??
+    #- intent: deny
+    #- action: utter_good_bye
 
-  - rule: restart conversation
-    steps:
-      - intent: restart
-      - action: action_restart
+  # - rule: submit language form
+  #   condition:
+  #   - active_loop: language_form   # this form must be active
+  #   steps:
+  #   - action: language_form      # run the form
+  #   - active_loop: null            # the form is no longer active because it has been filled
+  #   - action: utter_submit_coursesearch_form
+  #   - action: action_get_change_learning_recommendation # action to take after the form is complete
+  #   - action: utter_anything_else_v2
+
