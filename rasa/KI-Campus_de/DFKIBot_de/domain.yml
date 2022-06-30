@@ -33,8 +33,6 @@ actions:
   - utter_affirm_start_coursesearch_form
   - action_additional_learning_recommendation
   - utter_course_form_slots 
-  # - utter_change_language_slot
-  # - action_change_learning_recommendation
   - action_ask_language
   - action_ask_topic
   - action_ask_level
@@ -69,17 +67,6 @@ responses:
 
   utter_bot_introduction:
   - text: Ich helfe dir bei Fragen rund um den KI-Campus oder unterstütze dich bei der Suche nach einem passenden Kurs! Was kann ich für dich tun?
-
-#in action eingebaut
-  # utter_ask_language_change:
-  # - text: Wie ich verstanden habe, möchtest du die Sprache für deine Kursempfehlungen ändern. Wähle eine der Sprachoptionen aus! 
-  #   buttons: 
-  #     - title: Deutsch
-  #       payload: /inform_coursesearch{{"language":"Deutsch"}}     
-  #     - title: Englisch
-  #       payload: /inform_coursesearch{{"language":"Englisch"}}  
-  #     - title: egal
-  #       payload: /undecided
 
   utter_interjection_languages:
   - text: Wir bieten auf dem KI-Campus Kurse in den Sprachen Deutsch und Englisch an. Unser Angebot wird in diesen Sprachen fortlaufend ausgebaut.

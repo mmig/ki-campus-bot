@@ -197,28 +197,14 @@ class ActionFetchProfile(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
             
-        user_id = "22218451-41f0-23dd-c50f-cdd8096610c1"
-		# if random.randint(0,9) > 4: user_id = "22218451-41f0-23dd-c50f-cdd8096610c1"
-        #else: return [SlotSet("user_id", None), SlotSet("enrollments", []), SlotSet("course_visits", []), SlotSet("search_terms", []), dispatcher.utter_message(text="User ist nicht eingeloggt.")]
-        
+        user_id = "22218451-41f0-23dd-c50f-cdd8096610c1"        
 		# if re.search(".*", user_id): SlotSet("user_id", user_id) # create regex
         # else: return [SlotSet("user_id", None), dispatcher.utter_message("User ist nicht eingeloggt.")]
-		
         enrollments = ["Einführung in die KI", "Mensch-Maschine-Interaktion"]
-        # if not enrollments: SlotSet("enrollments", None)
-        # else: SlotSet("enrollments", enrollments)
-
         course_visits = ["Big Data Analytics"]
-        # if not course_visits: SlotSet("course_visits", None)
-        # else: SlotSet("course_visits", course_visits)
-
         search_terms = ["KI", "Machine Learning"]
-        # if not search_terms: SlotSet("search_terms", None)
-        # else: SlotSet("search_terms", search_terms)
-		
+        #to do: implement profile checkup
 
-        dispatcher.utter_message(text = "action_fetch_profile ausgeführt") #to do: delete, just for checkup
-		
         return [SlotSet("user_id", user_id), SlotSet("enrollments", enrollments), SlotSet("course_visits", course_visits), SlotSet("search_terms", search_terms)]
 
 ######################################################################################
@@ -243,8 +229,8 @@ class ActionGetLearningRecommendation(Action):
         course_visits = tracker.get_slot("course_visits")
         search_terms = tracker.get_slot("search_terms")
         
-		# to do: implement recommender and different utterances depending on recommendationsnicht
-		# to do: implement that it works after slot changed
+		# to do: implement recommender
+		# to do: maybe option 2 implement after delete slot value
         dispatcher.utter_message(text = "Also, ich empfehle dir folgende Lernangebote: \n\nLernangebot Beispiel")
         return []
 
@@ -260,20 +246,6 @@ class ActionAdditionalLearningRecommendation(Action):
         # to do: implement search for more recommendations
         dispatcher.utter_message(text = "Hier habe ich weitere Empfehlungen für dich: \n\nLernangebot Beispiel")
         return []
-
-# class ActionChangeLearningRecommendation():
-
-#     def name(self) -> Text:
-#         return "action_change_learning_recommendation"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-# 		# to do: implement search with new parameter
-	
-#         dispatcher.utter_message(text = "Also, ich empfehle dir folgende Lernangebote: \n\nLernangebot Beispiel")
-#         return []
 
 ##########################################################################################
 # FORMS & SLOTS

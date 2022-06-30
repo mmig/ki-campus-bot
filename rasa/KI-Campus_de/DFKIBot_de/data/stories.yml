@@ -160,7 +160,7 @@ stories:
     steps:
     - intent: negative_feedback 
     - action: utter_bot_apology
-    - action: utter_bot_apology_feedback #add # implement feedback form?
+    - action: utter_bot_apology_feedback # implement feedback form?
     - action: utter_anything_else_v2
 
 # change single course search parameters
@@ -170,14 +170,6 @@ stories:
     - action: utter_course_form_slots 
     - action: action_additional_learning_recommendation
     - action: utter_anything_else_v2
-
-# # only after course form / maybe mit slot was set / sonst out of scope oder neuer intent
-#   - story: change language learning recommendation
-#     steps:
-#     - intent: change_language_slot
-#     - action: language_form      # run the form
-#     - active_loop: language_form # this form is active
-#       # option 2:  delete language slot, start coursesearch_form, but no new question
 
 # option 2 problem: start only after form 
   - story: change language learning recommendation
