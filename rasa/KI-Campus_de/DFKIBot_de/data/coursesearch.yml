@@ -159,6 +159,7 @@ nlu:
       - Kursdauer ändern
       - Kursdauer anpassen auf 
       - Gib mir Empfehlungen für umfangreichere Kurse
+      - ich will doch auch empfehlungen bekommen, die über [50]{"entity": "max_duration", "value": "50"} h gehen   
 
 
   - intent: change_certificate_slot
@@ -223,10 +224,6 @@ nlu:
       - noch mal neu
       - starte neu!
       - beginne neu!
-      - Abbruch
-      - Stop
-      - stoppen
-      - abbrechen
       - Bitte die Konversation neu beginnen .
       - Bitte die Konversation neu anfangen .
       - Bitte die Konversation neu starten .
@@ -235,14 +232,6 @@ nlu:
       - Konversation neu anfangen .
       - Konversation neu starten .
       - Konversation neu machen .
-      - Bitte Noch mal von vorne beginnen .
-      - Bitte Noch mal von vorne anfangen .
-      - Bitte Noch mal von vorne starten .
-      - Bitte Noch mal von vorne machen .
-      - Noch mal von vorne beginnen .
-      - Noch mal von vorne anfangen .
-      - Noch mal von vorne starten .
-      - Noch mal von vorne machen .
     
 # coursesearch
   - intent: start_coursesearch_form

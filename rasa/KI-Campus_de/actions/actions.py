@@ -343,7 +343,7 @@ class ActionAskLevel(Action):
             dispatcher.utter_message(text = text, buttons = buttons)
         else:
             text = "Wie schätzt du deine Vorkenntnisse im Bereich KI ein?"
-            buttons = [{'title': 'Afänger*in', 'payload': '/inform_coursesearch{"level":"Anfänger"}'},
+            buttons = [{'title': 'Anfänger*in', 'payload': '/inform_coursesearch{"level":"Anfänger"}'},
     		{'title': 'Fortgeschrittene*r', 'payload': '/inform_coursesearch{"level":"Fortgeschritten"}'},
 			{'title': 'Experte', 'payload': '/inform_coursesearch/inform_coursesearch{"level":"Experte"}'}]
         

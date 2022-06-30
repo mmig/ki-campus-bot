@@ -3,32 +3,32 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- additional_learning_recommendation
-- greet
-- undecided
-- deny
+- goodbye
 - start_coursesearch_form
-- affirm
-- thank
-- inform_coursesearch
-- interjection_topic
-- change_topic_slot
-- change_language_slot
-- interjection_languages
 - faq:
     is_retrieval_intent: true
+- inform_coursesearch
+- undecided
+- greet
+- affirm
+- change_topic_slot
+- change_level_slot
+- stop_form
+- get_courses
+- change_certificate_slot
+- thank
+- deny
+- get_achievements
+- change_max_duration_slot
+- change_language_slot
+- additional_learning_recommendation
+- interjection_topic
+- interjection_languages
 - interjection_costs
 - negative_feedback
 - restart
 - interjection_time
-- stop_form
-- change_level_slot
-- change_max_duration_slot
-- change_certificate_slot
-- goodbye
 - get_course
-- get_achievements
-- get_courses
 - inform
 entities:
 - Course
@@ -201,7 +201,7 @@ slots:
     - type: custom
 responses:
   utter_tip_login:
-  - text: '💡Tipp: Für eine möglichst gute Kursempfehlung, helfen mir die Informationen aus deinem Profil. Melde dich bitte hier an.'
+  - text: '💡Tipp: Für eine möglichst gute Kursempfehlung helfen mir die Informationen aus deinem Profil. Melde dich bitte hier an.'
   utter_affirm_start_coursesearch_form:
   - text: Super! Hast du dich eingeloggt? Falls du dich nicht einloggen möchtest oder noch kein Profil bei uns hast, ist das auch kein Problem! Für die Kurssuche werde ich dir ein paar Fragen stellen. Wollen wir die Kurssuche starten?
     buttons:
@@ -211,27 +211,27 @@ responses:
       payload: /deny
   utter_anything_else_v2:
   - text: Womit kann ich dir noch behilflich sein?
+  - text: Wie kann ich dir sonst noch helfen?
   utter_ask_continue_coursesearch_form:
   - text: Alles klar, dann beenden wir die Kurssuche und wechseln das Thema! Bist du dir sicher, dass du zur Themenauswahl zurückkehren möchtest?
   utter_bot_apology:
   - text: Das tut mir leid! Ich muss noch vieles dazu lernen und werde mich immer weiter verbessern!
-  - text: Ich freue mich über dein Feedback! Um mir Feedback zu hinterlassen, klicke hier.
   utter_bot_apology_feedback:
   - text: Ich freue mich über dein Feedback! Um mir Feedback zu hinterlassen, klicke hier.
   utter_bot_introduction:
   - text: Ich helfe dir bei Fragen rund um den KI-Campus oder unterstütze dich bei der Suche nach einem passenden Kurs! Was kann ich für dich tun?
   utter_interjection_languages:
-  - text: Wir bieten auf dem KI-Campus Kurse in den Sprachen Deutsch und Englisch an! Das englischsprachige Angebot wird fortlaufend ausgebaut.
+  - text: Wir bieten auf dem KI-Campus Kurse in den Sprachen Deutsch und Englisch an. Unser Angebot wird in diesen Sprachen fortlaufend ausgebaut.
   utter_interjection_costs:
   - text: Die Nutzung aller Lernangebote des KI-Campus ist kostenlos.
   utter_interjection_time:
-  - text: Damit du den Arbeitsaufwand eines Kurses gut einschätzen kannst, haben wir unsere Kurse nach ihrer gesamt Stundenanzahl unterteilt.
+  - text: Damit du den Arbeitsaufwand eines Kurses gut einschätzen kannst, habe ich unsere Kurse nach ihrer gesamten Stundenanzahl unterteilt.
   utter_interjection_topic:
-  - text: Der KI-Campus umfasst sowohl Grundlagen als auch interdisziplinäre Fragestellungen und Vertiefungen einzelner Bereiche und Themenfelder der KI. Für die Kurssuche haben wir dir eine Auswahl unserer angebotenen Themen vorbereitet.
+  - text: Der KI-Campus umfasst sowohl Grundlagenwissen zu KI als auch interdisziplinäre Fragestellungen und vertiefende Lernangebote. Ich habe dir eine Auswahl unserer Themenkategorien vorbereitet.
   utter_restart:
   - text: Wir starten die Konversation jetzt noch mal neu!
   utter_submit_coursesearch_form:
-  - text: Einen Moment bitte, ich werde dir jetzt einen passenden Kurs berechenen.
+  - text: Einen Moment bitte, ich suche passende Lernangebote für dich raus.
   utter_course_form_slots:
   - text: |-
       Du hast eine Kurssuche mit folgenden Parametern gemacht:
@@ -251,7 +251,7 @@ responses:
   utter_anything_else:
   - text: Kann ich dir noch mit etwas anderem behilflich sein?
   utter_greet:
-  - text: Hallo!👋 Ich bin KIm, dein virtueller Assistent! Ich beantworte deine Fragen rund um den KI-Campus und helfe dir dabei deinen Wunschkurs zu finden. Ich muss noch einiges dazu lernen, deine Fragen werden mir dabei helfen. Frag mich also alles was du zum KI-Campus wissen möchtest!
+  - text: Hallo!👋 Ich bin KIm, dein virtueller Assistent! Ich beantworte deine Fragen rund um den KI-Campus und helfe dir dabei, deinen Wunschkurs zu finden. Ich muss noch einiges dazulernen, deine Fragen werden mir dabei helfen. Frag mich also alles, was du zum KI-Campus wissen möchtest!
   utter_how_can_i_help:
   - text: Wie kann ich dir helfen? Stell mir deine Fragen oder starte die Kurssuche!
   utter_tip_formulation:
@@ -343,6 +343,7 @@ actions:
 - utter_ask_continue_coursesearch_form
 - utter_bot_apology
 - utter_bot_apology_feedback
+- utter_bot_introduction
 - utter_course_form_slots
 - utter_end_of_conversation
 - utter_faq
@@ -355,6 +356,7 @@ actions:
 - utter_interjection_topic
 - utter_more_info
 - utter_restart
+- utter_submit
 - utter_submit_coursesearch_form
 - utter_tip_formulation
 - utter_tip_login
