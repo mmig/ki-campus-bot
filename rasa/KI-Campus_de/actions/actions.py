@@ -244,7 +244,7 @@ class ActionAdditionalLearningRecommendation(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         # to do: implement search for more recommendations
-        dispatcher.utter_message(text = "Hier habe ich weitere Empfehlungen für dich: \n\nLernangebot Beispiel")
+        dispatcher.utter_message(text = "Also, ich empfehle dir folgende Lernangebote: \n\nLernangebot Beispiel")
         return []
 
 ##########################################################################################
@@ -304,7 +304,7 @@ class ActionAskTopic(Action):
 
         intent = str(tracker.get_intent_of_latest_message())
         if intent == 'change_topic_slot':
-            text = "Du möchtest also das Thema für deine Kursempfehlungen ändern. Hier hast du eine Auswahl unserer angebotenen Themen:"
+            text = "Du möchtest also das Thema für deine Kursempfehlungen ändern. Hier ist eine Auswahl unserer Themen:"
             buttons = [{'title': 'Einführung in die KI', 'payload': '/inform_coursesearch{"topic":"ki-einführung"}'},
     		    {'title': 'Vertiefung einzelner Themenfelder der KI', 'payload': '/inform_coursesearch{"topic":"ki-vertiefung"}'},
 			    {'title': 'KI in Berufsfeldern', 'payload': '/inform_coursesearch{"topic":"ki-berufsfelder"}'},
@@ -367,7 +367,7 @@ class ActionAskMaxDuration(Action):
         
             dispatcher.utter_message(text = text, buttons = buttons)
         else:
-            text = "Wie umfangreich darf das Lernangebot insgesamt sein?"
+            text = "Wie umfangreich darf der Kurs insgesamt sein?"
             buttons = [{'title': 'bis zu 10 Stunden', 'payload': '/inform_coursesearch{"max_duration":"10"}'},
     		{'title': 'maximal 50 Stunden', 'payload': '/inform_coursesearch{"max_duration":"50"}'},
 			{'title': 'auch über 50 Stunden', 'payload': '/inform_coursesearch{"max_duration":"51"}'}]
@@ -386,15 +386,15 @@ class ActionAskCertificate(Action):
         intent = str(tracker.get_intent_of_latest_message())
         if intent == 'change_certificate_slot':
             text = "Wie ich verstanden habe, möchtest du einen neuen Nachweis wählen, den du in deinem Wunschkurs erhalten kannst. Wir haben zwei Optionen:"
-            buttons = [{'title': 'unbenotete Teilnahmebescheinigung', 'payload': '/inform_coursesearch{"certificate":"Teilnahmebescheinigung"}'},
-    		{'title': 'benoteter Leistungsnachweis', 'payload': '/inform_coursesearch{"certificate":"Leistungsnachweis"}'},
+            buttons = [{'title': 'Teilnahmebescheinigung (unbenotet)', 'payload': '/inform_coursesearch{"certificate":"Teilnahmebescheinigung"}'},
+    		{'title': 'Leistungsnachweis (benotet)', 'payload': '/inform_coursesearch{"certificate":"Leistungsnachweis"}'},
 			{'title': 'egal', 'payload': '/undecided'}]
         
             dispatcher.utter_message(text = text, buttons = buttons)
         else:
             text = "Welcher Nachweis ist dir wichtig?"
-            buttons = [{'title': 'unbenotete Teilnahmebescheinigung', 'payload': '/inform_coursesearch{"certificate":"Teilnahmebescheinigung"}'},
-    		{'title': 'benoteter Leistungsnachweis', 'payload': '/inform_coursesearch{"certificate":"Leistungsnachweis"}'},
+            buttons = [{'title': 'Teilnahmebescheinigung (unbenotet)', 'payload': '/inform_coursesearch{"certificate":"Teilnahmebescheinigung"}'},
+    		{'title': 'Leistungsnachweis (benotet)', 'payload': '/inform_coursesearch{"certificate":"Leistungsnachweis"}'},
 			{'title': 'egal', 'payload': '/undecided'}]
         
             dispatcher.utter_message(text = text, buttons = buttons)
@@ -448,7 +448,7 @@ class ValidateCourseSearchForm(FormValidationAction):
 		elif slot_value.lower() in self.language_no_support_db():
 			lang = str(slot_value).capitalize()
 			print(lang) # for testing
-			dispatcher.utter_message(text = f"Der KI-Campus bietet keine Kurse auf {lang} an. Wir bieten Kurse auf Deutsch und Englisch an. Unser Angebot in diesen beiden Sprachen wird fortlaufend ausgebaut.")
+			dispatcher.utter_message(text = f"Wir bieten auf dem KI-Campus nur Kurse auf Deutsch und Englisch an. Bestimmt ist für dich etwas Passendes dabei!")
 			return {"language": None}
 		else:
 			dispatcher.utter_message(response = "utter_interjection_languages")
@@ -465,5 +465,5 @@ class ValidateCourseSearchForm(FormValidationAction):
 		if slot_value.lower() in self.topic_db():
 			return {"topic": slot_value.lower()}
 		else:
-			dispatcher.utter_message("Dieses Thema kenne ich leider nicht. Damit du einen guten Überblick hast, habe ich dir eine Auswahl unserer Themenkategorien vorbereitet.")
+			dispatcher.utter_message("Dieses Thema habe ich leider nicht. Damit du einen guten Überblick hast, habe ich dir eine Auswahl unserer Themenkategorien vorbereitet.")
 			return {"topic": None}

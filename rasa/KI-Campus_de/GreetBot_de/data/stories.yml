@@ -19,5 +19,4 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - action: utter_how_can_i_help
   - action: utter_tip_formulation

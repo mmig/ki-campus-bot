@@ -10,7 +10,6 @@ actions:
 - utter_you_are_welcome
 - utter_end_of_conversation
 # added dfki 
-- utter_how_can_i_help
 - utter_tip_formulation
 
 responses:
@@ -21,15 +20,16 @@ responses:
   - text: Kann ich dir noch mit etwas anderem behilflich sein?
 
   utter_greet:
-  - text: Hallo!👋 Ich bin KIm, dein virtueller Assistent! Ich beantworte deine Fragen rund um den KI-Campus und helfe dir dabei, deinen Wunschkurs zu finden. Ich muss noch einiges dazulernen, deine Fragen werden mir dabei helfen. Frag mich also alles, was du zum KI-Campus wissen möchtest! 
+  - text: Hallo! 👋Ich bin KIm, dein virtueller Assistent! Ich beantworte deine Fragen rund um den KI-Campus und helfe dir dabei, deinen Wunschkurs zu finden.
+  Ich muss noch einiges dazulernen, deine Fragen werden mir dabei helfen. Frag mich also alles, was du zum KI-Campus wissen möchtest! 
   # added dfki
-  utter_how_can_i_help:
-  - text: Wie kann ich dir helfen? Stell mir deine Fragen oder starte die Kurssuche!
+  
   utter_tip_formulation:
-  - text: "💡Übrigens: Ich verstehe dich am besten, wenn du deine Fragen kurz und präzise formulierst!"
+  - text: "💡 Übrigens: Ich verstehe dich am besten, wenn du deine Fragen kurz und präzise formulierst!"
 
   utter_goodbye:
-  - text: Auf Wiedersehen!
+  - text: Alles klar. Ich wünsche dir noch einen schönen Tag! Bis bald 👋
+  - text: Alles klar. Ich wünsche dir noch einen schönen Tag! Auf Wiedersehen 👋
   utter_you_are_welcome:
   - text: Bitte sehr.
   - text: Es ist immer schön, hilfreich zu sein.
