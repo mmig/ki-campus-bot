@@ -20,10 +20,9 @@ responses:
   - text: Kann ich dir noch mit etwas anderem behilflich sein?
 
   utter_greet:
-  - text: Hallo! 👋 Ich bin KIm, dein virtueller Assistent! Ich beantworte deine Fragen rund um den KI-Campus und helfe dir dabei, deinen Wunschkurs zu finden.
-  Ich muss noch einiges dazulernen, deine Fragen werden mir dabei helfen. Frag mich also alles, was du zum KI-Campus wissen möchtest! 
-  # added dfki
+  - text: Hallo! 👋 Ich bin KIm, dein virtueller Assistent! Ich beantworte deine Fragen rund um den KI-Campus und helfe dir dabei, deinen Wunschkurs zu finden. Ich muss noch einiges dazulernen, deine Fragen werden mir dabei helfen. Frag mich also alles, was du zum KI-Campus wissen möchtest! 
   
+  # added dfki
   utter_tip_formulation:
   - text: "💡 Übrigens: Ich verstehe dich am besten, wenn du deine Fragen kurz und präzise formulierst!"
 
