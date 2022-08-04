@@ -1,19 +1,5 @@
 ### Version 3.0
 
-# DFKI:
-
-## Usage
-
-Change to 'for local development' endpoint in endpoints.yml
-
-### Usage alternative
-
-In folder with the chatbot
-
-```sh
-    rasa shell
-```
-___________________
 # KI-Campus Chatbot
 
 ## Training of the Model 
@@ -38,7 +24,16 @@ Choose the folder with the chatbot in English (KI-Campus_en) or in German (KI-Ca
     cd actions/
     rasa run actions
 ```
+### Aternatives for Development
 
+Change to 'for local development' endpoint in endpoints.yml
+
+In folder with the chatbot: start chatbot in shell
+
+```sh
+    rasa shell
+```
+___________________
 ## Docker
 
 In the outer project structure run:
