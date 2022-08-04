@@ -99,10 +99,6 @@ forms:
         - certificate
         - max_duration
         - level
-  
-  # language_form:
-  #   required_slots:
-  #       - language_change
 
 entities:
 
@@ -113,24 +109,6 @@ entities:
   - max_duration
 
 slots:
-  # language_change:
-  #   type: categorical
-  #   values: 
-  #     - englisch
-  #     - deutsch
-  #     - egal
-  #   mappings:
-  #   - type: from_entity
-  #     entity: language
-  #     conditions:
-  #     - active_loop: language_form
-  #       requested_slot: language_change
-  #   - type: from_intent
-  #     intent: undecided
-  #     value: 'egal'
-  #     conditions:
-  #     - active_loop: language_form
-  #       requested_slot: language_change
 
   language:
     type: categorical
@@ -196,7 +174,7 @@ slots:
     values:
       - Einsteiger
       - Fortgeschritten
-      - Experte # liste, mehrere level auswählen, theresa fragen, ui checkliste?
+      - Experte 
     mappings:
     - type: from_entity
       entity: level
